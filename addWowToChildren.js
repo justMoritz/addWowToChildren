@@ -4,10 +4,12 @@
    */
   var _addWowToChildren = function($input, classname){
     classname = classname || 'slideInUp';
-    var incrementer = 0;
-    $('> *',$input).each(function(){
-      $(this).addClass('wow').addClass(classname).attr('data-wow-delay', incrementer*100+'ms');
-      incrementer++;
+    $input.each(function(){
+      var incrementer = 0;
+      $('> *',$(this)).each(function(){
+        $(this).addClass('wow').addClass(classname).attr('data-wow-delay', incrementer*100+'ms');
+        incrementer++;
+      });
     });
   };
   jQuery.fn.addWowToChildren = function(classname) {
